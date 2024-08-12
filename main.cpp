@@ -115,5 +115,7 @@ int main()
 
 
 
-
+/*P.S ---   Not my orginal work. Took refrence and done for learning purpose to learn the concept
+ behind making connection between the sql and c++ using different lib files and putting directories foe include and also
+ this code is not only how the connection is made. There is different steps to do before coding part :-)*/
 
