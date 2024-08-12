@@ -59,14 +59,14 @@ int main()
 				
 				cout<<"grade: ";
 				cin>>Grade;
-				cin.ignore(100,'\n');
+				cin.ignore(100,'\n');//clearing the buffer again
 				cout<<endl;
 				
-				//setting our update
-				
+				//setting our insert statement template to add data in DB
 				sentence_aux = "INSERT INTO students(College_ID, name,BirthDate, Grade) VALUES('%d' , '%s' , '%s' , '%f')";
-				sentence = new char[sentence_aux.length() + 1];
-				strcpy(sentence,sentence_aux.c_str());  //we copy string into a *char
+				sentence = new char[sentence_aux.length() + 1];//allocating the memory for the template
+				strcpy(sentence,sentence_aux.c_str());  //we copy string into a *char array
+				
 				
 				consult = new char[strlen(sentence) + sizeof(int) + strlen(BirthDate) + sizeof(float)];
 				sprintf(consult,sentence,College_ID,name,BirthDate,Grade);  //substitutes %d... for actual values
