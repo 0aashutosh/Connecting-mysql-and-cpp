@@ -72,34 +72,36 @@ int main()
 				sprintf(consult,sentence,College_ID,name,BirthDate,Grade);  //substitutes %d... for actual values
 				
 				
-				//make our attempt
+				//make our attempt and checking if the connection is still alive
 				
 				if(mysql_ping(obj))
 				{
-					cout<<"ERROR: Impossible to connect."<<endl;
-					cout<<mysql_error(obj)<<endl;
-					
+					cout<<"ERROR: Impossible to connect."<<endl;//error msg
+					cout<<mysql_error(obj)<<endl;	
 				}
+				
+				
 				if(mysql_query(obj,consult))
 				{
 					 cout<<"ERROR: "<<mysql_error(obj)<<endl;
-					 rewind(stdin);
+					 rewind(stdin);//reseting the input buffer
 					 getchar();
 				}
 				else
 				{
 					cout<<"Info added correctly."<<endl;
 				}
-				mysql_store_result(obj);
-				cout <<endl<<"Another? "<<endl;
+				
+				mysql_store_result(obj);//retrieve and discard any results from the query
+//				cout <<endl<<"Another? "<<endl;//asking for another input again
 				cout<<"[1]: yes"<<endl;
 				cout<<"[0]: no"<<endl;
 				cout<<"Answer: ";
 				cin>>answer;
-				cin.ignore(100,'\n');
+				cin.ignore(100,'\n');//clearing the input buffer
 				if(answer==0)
 				{
-					ProgramIsOpened = false;
+					ProgramIsOpened = false;//exiting loop i.e if user no for another  
 				}
 				cout<<endl;
 				
@@ -110,3 +112,8 @@ int main()
 	
 	return 0;
 }
+
+
+
+
+
